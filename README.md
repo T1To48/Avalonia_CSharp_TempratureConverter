@@ -16,7 +16,7 @@ Temperature Converter is a desktop application that allows users to easily conve
 
 ## Screenshot
 
-![Temperature Converter Application](./screenshot.png)
+![Temperature Converter Application](./program_screenshot.jpeg)
 
 ## Project Structure
 
@@ -94,9 +94,9 @@ The application follows a simple architectural pattern:
 
 ### Building for Release
 
-For macOS:
+For Windows X64:
 ```bash
-dotnet publish -c Release -f net10.0 --self-contained
+dotnet publish -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
 ```
 
 ### Project Configuration
@@ -110,9 +110,6 @@ The project is configured in `TempratureConverter.csproj` with:
 
 Feel free to submit issues and enhancement requests!
 
-## License
-
-This project is open source and available under the MIT License.
 
 ## Author
 
