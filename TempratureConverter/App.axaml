@@ -1,0 +1,19 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="TempratureConverter.App"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+
+      <Application.Resources>
+        <!-- define the title font  -->
+        <FontFamily x:Key="BitsBytes">avares://TempratureConverter/Assets/Fonts/BitsBytes.ttf#Bitcount Grid Double</FontFamily>
+
+        <!-- define the calc Btn font  -->
+        <FontFamily x:Key="ArchDaughter">avares://TempratureConverter/Assets/Fonts/ArchitectsDaughter.ttf#Architects Daughter</FontFamily>
+
+    </Application.Resources>
+</Application>

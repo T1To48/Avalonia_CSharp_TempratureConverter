@@ -1,0 +1,66 @@
+
+<!-- The first few lines of the <Window> tag declare the
+XML namespaces used by Avalonia. The namespace aliases used are x, vm, d, and mc. -->
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="800"
+        x:Class="TempratureConverter.MainWindow"
+        Title="TempratureConverter"
+        Width="800"
+        Height="600">
+    <!-- Main view window like <div id="root"></div> in react or body element in html -->
+    <StackPanel Background="#8AAFD4"  >
+
+        <!-- Program Title with Custom Download FONT wrapped in a border with neumorphism design -->
+        <Border  HorizontalAlignment="Center" Margin="5, 50, 5, 5"  CornerRadius="10" BoxShadow="inset 6 6 12 0 #7595b4, inset -6 -6 12 0 #9fc9f4" Width="700" >
+            <TextBlock
+            Margin="10"
+            FontSize="50"
+            Text="Temprature Converter"
+            Foreground="#2C3E50"
+            FontFamily="{StaticResource BitsBytes}"
+            LetterSpacing="2"
+            FontWeight="ExtraBold"
+            HorizontalAlignment="Center"
+            />
+        </Border>
+        <!-- stack panel for the whole conversion AREA in UI -->
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Spacing="100" Margin="10">
+
+            <!-- stack panel for the right side -->
+            <StackPanel Margin="10" Width="250" >
+                <!-- stack panel for the source unit tiel and change Unit btn -->
+                <StackPanel Margin="10"  Spacing="50" Orientation="Horizontal">
+                    <TextBlock Width="140"  Name="SourceUnit" FontSize="25"  >Celsius:</TextBlock>
+                    <Button Click="Btn_OnClick_ChangeUnit" BorderBrush="#2C3E50" BorderThickness="1" Padding="7" CornerRadius="15" Background="Transparent" FontSize="12" FontWeight="Bold"  > 🔄 Change </Button>
+                </StackPanel>
+                <!-- input for the source temp value ONLY Numbers are shown othres are filterd out in the textchanged event -->
+                <TextBox TextChanged="Input_OnChange_FilterNumbers"  Name="CelsiusInputVal" CornerRadius="15" BorderThickness="2" BorderBrush="#2C3E50" Background="Transparent" Padding="10" FontSize="20" Margin="0 5" Text="0"/>
+                <TextBlock  FontSize="25" Margin="0 15 0 10">Convert To:</TextBlock>
+
+                <!-- drop box to choose target unit ß -->
+                <ComboBox  Name="ConvertUnitDD" CornerRadius="15"  Padding="10" FontSize="20" SelectedIndex="0" MaxDropDownHeight="150" Width="250">
+                    <ComboBoxItem Content="Fahrenheit"  />
+                    <ComboBoxItem Content="Kelvin"/>
+                    <ComboBoxItem IsEnabled="false" Content="Celsius"/>
+                </ComboBox>
+            </StackPanel>
+            <!-- RESULT value for the target temp LEFT SIDE -->
+            <Border CornerRadius="15" Margin="15" Background="#2C3E50" Width="250" VerticalAlignment="Center" Height="250" BoxShadow="inset 6 6 100 0 #48545f, inset -6 -6 100 0 #48545f">
+                <TextBlock Name="TargetTemp" Foreground="#8AAFD4" FontSize="25"  Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">32 F°</TextBlock>
+            </Border>
+        </StackPanel>
+
+        <!-- Calculate the taget value Button -->
+        <Button  Foreground="#8AAFD4" Background="#2C3E50"
+                 CornerRadius="15" LetterSpacing="3"
+                 FontFamily="{StaticResource ArchDaughter}"
+                 FontWeight="900" Margin="10" Padding="25 10" FontSize="35" HorizontalAlignment="Center"
+                 Click="Btn_OnClick_Calc">
+            Convert
+        </Button>
+    </StackPanel>
+</Window>
+
